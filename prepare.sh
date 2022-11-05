@@ -36,7 +36,7 @@ set +e
 export OCP_INGRESS=$(oc get ingress.config cluster -o jsonpath='{.spec.domain}')
 ansible-playbook ibm.mas_devops.oneclick_core
 EOF
-cat <<\EOF > 2_manaage.sh
+cat <<\EOF > 2_manage.sh
 #!/usr/bin/bash
 ## To read env.sh file
 source $(dirname $(realpath ${0}))/env.sh
