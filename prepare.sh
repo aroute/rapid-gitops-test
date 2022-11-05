@@ -42,8 +42,8 @@ cat <<\EOF > 2_manage.sh
 source $(dirname $(realpath ${0}))/env.sh
 set -e
 export OCP_INGRESS=$(oc get ingress.config cluster -o jsonpath='{.spec.domain}')
-set +e
 ansible-playbook ibm.mas_devops.oneclick_add_manage.yml
+set +e
 export DB2_INSTANCE_NAME=db2w-shared
 ### Add PVC and BIM - post-deploy config for Manage
 ROLE_NAME=suite_manage_attachments_config ansible-playbook ibm.mas_devops.run_role
