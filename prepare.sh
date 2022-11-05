@@ -49,14 +49,14 @@ export DB2_INSTANCE_NAME=db2w-shared
 ROLE_NAME=suite_manage_attachments_config ansible-playbook ibm.mas_devops.run_role
 ROLE_NAME=suite_manage_bim_config ansible-playbook ibm.mas_devops.run_role
 EOF
-cat <<\EOF > /scripts/3_iot.sh
+cat <<\EOF > 3_iot.sh
 #!/usr/bin/bash
 ## To read env.sh file.
 source $(dirname $(realpath ${0}))/env.sh
 #export MAS_APP_CHANNEL=8.5.x
 ansible-playbook ibm.mas_devops.oneclick_add_iot
 EOF
-cat <<\EOF > /scripts/4_monitor.sh
+cat <<\EOF > 4_monitor.sh
 #!/usr/bin/bash
 ## To read env.sh file.
 source $(dirname $(realpath ${0}))/env.sh
