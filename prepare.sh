@@ -22,7 +22,7 @@ export MAS_APP_SETTINGS_PERSISTENT_VOLUMES_FLAG=true
 export MAS_APP_SETTINGS_SERVER_BUNDLES_SIZE=jms
 export MAS_APPWS_COMPONENTS="base=latest,health=latest"
 EOF
-cat <<\EOF > core.sh
+cat <<\EOF > 1_core.sh
 #!/usr/bin/bash
 ## To read env.sh file.
 source $(dirname $(realpath ${0}))/env.sh
@@ -36,7 +36,7 @@ set +e
 export OCP_INGRESS=$(oc get ingress.config cluster -o jsonpath='{.spec.domain}')
 ansible-playbook ibm.mas_devops.oneclick_core
 EOF
-cat <<\EOF > manaage.sh
+cat <<\EOF > 2_manaage.sh
 #!/usr/bin/bash
 ## To read env.sh file
 source $(dirname $(realpath ${0}))/env.sh
