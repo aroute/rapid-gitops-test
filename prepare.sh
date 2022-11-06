@@ -55,6 +55,9 @@ cat <<\EOF > 3_iot.sh
 source $(dirname $(realpath ${0}))/env.sh
 #export MAS_APP_CHANNEL=8.5.x
 ansible-playbook ibm.mas_devops.oneclick_add_iot
+set -e
+oc project mas-masdemo-iot
+oc get pods --field-selector 'status.phase=Failed' -o name | xargs oc delete
 EOF
 cat <<\EOF > 4_monitor.sh
 #!/usr/bin/bash
