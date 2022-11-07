@@ -47,7 +47,7 @@ set +e
 export DB2_INSTANCE_NAME=db2w-shared
 ### Add PVC and BIM - post-deploy config for Manage
 ROLE_NAME=suite_manage_attachments_config ansible-playbook ibm.mas_devops.run_role
-ROLE_NAME=suite_manage_bim_config ansible-playbook ibm.mas_devops.run_role
+#ROLE_NAME=suite_manage_bim_config ansible-playbook ibm.mas_devops.run_role
 EOF
 cat <<\EOF > 3_iot.sh
 #!/usr/bin/bash
